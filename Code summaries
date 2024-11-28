@@ -1,0 +1,34 @@
+Code summaries
+
+	part 1, 2
+	extract relevant columns,Selected variables are extracted from the original dataset to focus on the analysis. A deep copy of the subset is created to avoid issues with warnings related to chained operations.
+	Categorize ‘Online Social Gaming’ 
+Frequent Gamers: Respondents who play online games daily or a few times a week.
+Non-Gamers: All other respondents.
+	balancing the sample sizes
+The groups are filtered by category and randomly sampled to match the size of the smaller group.
+This ensures equal group sizes, which improves statistical robustness for comparison.
+
+The loneliness scale scores are extracted for each group, and missing values are removed using dropna(). The mean, standard deviation, and sample size are calculated for loneliness scores in each group and stored in a DataFrame for easy presentation.
+
+An independent samples t-test is performed to assess whether the difference in loneliness scores between the two groups is statistically significant.
+
+Basic statistics are computed and bar plots comparing those are plotted
+
+	part 3
+
+Applied one way and two way ANOVA
+F-statistic: A ratio of the variance between group means to the variance within the groups.
+p-value: The probability of observing the data if the null hypothesis is true.
+
+Applied two way ANOVA after creating age and gender categories in addition to gaming category.
+Gaming Category: Categorizes respondents into Frequent Gamers and Non-Gamers based on their online gaming habits.
+Loneliness Score: Extracts the variable to be used as the dependent variable in the ANOVA analysis.
+ANOVA Formula:
+Main effects: gaming_category, age_category, gender_category.
+Interaction effect: gaming_category:age_category:gender_category (three-way interaction).
+ANOVA Test:
+The function anova_lm() computes ANOVA table values such as sums of squares, F-statistics, and p-values.
+	
+	part 4
+The pooled standard deviation combines the variability of both groups, weighted by their degrees of freedom (n−1). Used that to calculate cohen’s d
